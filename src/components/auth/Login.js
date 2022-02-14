@@ -1,8 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autenticacion/authContext';
-
 
 const Login = (props) => {
 
@@ -13,19 +12,19 @@ const Login = (props) => {
     const authContext = useContext(AuthContext);
     const { mensaje, autenticado, iniciarSesion } = authContext;
 
-        //Redirigir
-        const navigate = useNavigate();
-      // En caso de que el password o usuario no exista
-      useEffect(() => {
-        if(autenticado) {
-            navigate('/proyectos');
-        }
+      //Redirigir
+    const navigate = useNavigate();
+    // En caso de que el password o usuario no exista
+    useEffect(() => {
+      if(autenticado) {
+          navigate('/proyectos');
+      }
 
-        if(mensaje) {
-            mostrarAlerta(mensaje.msg, mensaje.categoria);
-        }
+      if(mensaje) {
+          mostrarAlerta(mensaje.msg, mensaje.categoria);
+      }
 
-    }, [mensaje, autenticado, props.history]);
+  }, [mensaje, autenticado, props.history]);
 
     // State para iniciar sesión
     const [usuario, guardarUsuario] = useState({
