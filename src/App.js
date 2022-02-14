@@ -27,7 +27,11 @@ function App() {
                 <Routes>
                       <Route path="/" element={<Login/>} />
                       <Route path="/nueva-cuenta" element={<NuevaCuenta/>} />
-                      <Route path="/proyectos" element={<Proyectos/>} />
+                      <Route path="/proyectos" element={
+                        <RutaPrivada>
+                           <Proyectos/>
+                        </RutaPrivada>
+                      } />
                 </Routes>
             </Router>
           </AuthState>

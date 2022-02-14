@@ -1,25 +1,17 @@
-import React, { useContext, useEffect } from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 import AuthContext from '../../context/autenticacion/authContext';
 
-export const RutaPrivada = ({ component: Component, ...props  }) => {
+export const RutaPrivada = ({children}) => {
 
     const authContext = useContext(AuthContext);
-    const { autenticado, cargando, usuarioAutenticado } = authContext;
+    const { autenticado, cargando} = authContext;
+    
 
-    useEffect(() => {
-        usuarioAutenticado();
-        // eslint-disable-next-line
-    }, []);
 
-    return ( 
-        <Route { ...props } render={ props => !autenticado && !cargando ?  (
-            <Navigate to="/"/>
-        )  : (
-            <Component {...props} />
-        ) } />
-
-     );
+    return autenticado & !cargando
+        ? children
+        : <Navigate to={"/"}/>
 }
  
 export default RutaPrivada;
