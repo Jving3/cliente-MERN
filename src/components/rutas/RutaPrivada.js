@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Route, Navigate } from 'react-router-dom';
 import AuthContext from '../../context/autenticacion/authContext';
 
-const RutaPrivada = ({ component: Component, ...props  }) => {
+export const RutaPrivada = ({ component: Component, ...props  }) => {
 
     const authContext = useContext(AuthContext);
     const { autenticado, cargando, usuarioAutenticado } = authContext;
@@ -14,7 +14,7 @@ const RutaPrivada = ({ component: Component, ...props  }) => {
 
     return ( 
         <Route { ...props } render={ props => !autenticado && !cargando ?  (
-            <Navigate to="/" />
+            <Navigate to="/"/>
         )  : (
             <Component {...props} />
         ) } />

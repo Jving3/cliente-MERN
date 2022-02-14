@@ -25,9 +25,9 @@ function App() {
           <AuthState>
             <Router>
                 <Routes>
-                    <Route path="/" element={<Login/>} />
-                    <Route path="/nueva-cuenta" element={<NuevaCuenta/>} />
-                    <Route path="/proyectos" element={<Proyectos/>} />
+                      <Route path="/" element={<Login/>} />
+                      <Route path="/nueva-cuenta" element={<NuevaCuenta/>} />
+                      <Route path="/proyectos" element={<Proyectos/>} />
                 </Routes>
             </Router>
           </AuthState>
