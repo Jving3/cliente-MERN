@@ -1,29 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import NuevaCuenta from './components/auth/NuevaCuenta';
-import Proyectos from "./components/proyectos/Proyectos";
-import NotFound from './pages/NotFounf';
-import Barra from "./components/layout/Barra";
+import Proyectos from './components/proyectos/Proyectos';
 
 import ProyectoState from './context/proyectos/proyectoState';
-
+import TareaState from './context/tareas/tareaState';
+import AlertaState from './context/alertas/alertaState';
+import AuthState from './context/autenticacion/authState';
 
 function App() {
-  
-  
   return (
     <ProyectoState>
-          <Router> 
-              <Routes>
-                <Route path="/" element={<Barra/>}/>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/nueva-cuenta" element={<NuevaCuenta/>}/>
-                <Route path="/proyectos" element={<Proyectos/>}/>
-                <Route path="*" element={<NotFound/>}/>
-              </Routes>
-          </Router>
+      <TareaState>
+        <AlertaState>
+          <AuthState>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Login/>} />
+                    <Route path="/nueva-cuenta" element={<NuevaCuenta/>} />
+                    <Route path="/proyectos" element={<Proyectos/>} />
+                </Routes>
+            </Router>
+          </AuthState>
+        </AlertaState>
+      </TareaState>
     </ProyectoState>
   );
 }

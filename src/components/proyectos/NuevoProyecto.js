@@ -1,12 +1,12 @@
 import React, { Fragment, useState, useContext } from 'react';
 import proyectoContext from '../../context/proyectos/proyectoContext';
 
-
 const NuevoProyecto = () => {
 
     // Obtener el state del formulario
     const proyectosContext = useContext(proyectoContext);
     const { formulario, errorformulario,  mostrarFormulario, agregarProyecto, mostrarError } = proyectosContext;
+
 
     // State para Proyecto
     const [proyecto, guardarProyecto] = useState({
@@ -37,8 +37,8 @@ const NuevoProyecto = () => {
         // agregar al state
         agregarProyecto(proyecto)
 
-         // Reiniciar el form
-         guardarProyecto({
+        // Reiniciar el form
+        guardarProyecto({
             nombre: ''
         })
     }

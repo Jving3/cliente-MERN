@@ -2,7 +2,6 @@ import {
     FORMULARIO_PROYECTO, 
     OBTENER_PROYECTOS,
     AGREGAR_PROYECTO,
-    PROYECTO_ERROR,
     VALIDAR_FORMULARIO,
     PROYECTO_ACTUAL,
     ELIMINAR_PROYECTO
@@ -43,11 +42,6 @@ export default (state, action) => {
                 ...state,
                 proyectos: state.proyectos.filter(proyecto => proyecto.id !== action.payload ),
                 proyecto: null
-            }
-        case PROYECTO_ERROR:
-            return {
-                ...state,
-                mensaje: action.payload
             }
         default:
             return state;
