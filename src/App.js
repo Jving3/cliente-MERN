@@ -9,7 +9,7 @@ import TareaState from './context/tareas/tareaState';
 import AlertaState from './context/alertas/alertaState';
 import AuthState from './context/autenticacion/authState';
 import tokenAuth from './config/token';
-import RutaPrivada from './components/rutas/RutaPrivada';
+import Operaciones from './components/operaciones/Operaciones';
 
 // Revisar si tenemos un token
 const token = localStorage.getItem('token');
@@ -27,11 +27,8 @@ function App() {
                 <Routes>
                       <Route path="/" element={<Login/>} />
                       <Route path="/nueva-cuenta" element={<NuevaCuenta/>} />
-                      <Route path="/proyectos" element={
-                        <RutaPrivada>
-                           <Proyectos/>
-                        </RutaPrivada>
-                      } />
+                      <Route path="/operaciones" element={<Operaciones/>} />
+                      <Route path="/proyectos" element={<Proyectos/>} />
                 </Routes>
             </Router>
           </AuthState>

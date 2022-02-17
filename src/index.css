@@ -361,3 +361,16 @@ aside  {
   background-color: rgb(230, 78, 78);
   color: var(--blanco);
 }
+
+/** PERSONALIZADO **/
+
+.menu-principal a {
+  color: var(--blanco);
+  text-decoration: none;
+}
+.menu-principal a:first-of-type {
+  margin-right: 2rem;
+}
+.menu-principal ul li {
+  display: inline-block;
+}
