@@ -1,9 +1,18 @@
+import React, { useContext, useEffect } from 'react';
 import Barra from "../layout/Barra";
 import Operacion from "./Operacion";
-import Personas from "./Personas";
+import ActContext from "../../context/actualizar/actContext"
 
 function Operaciones() {
 
+      // Extraer la información de autenticación
+      const actContext = useContext(ActContext);
+      const { cargando, actualizado, cerrarActualizar, obtenerActualizar } = actContext;
+  
+      useEffect(() => {
+          obtenerActualizar();
+          // eslint-disable-next-line
+      }, []);
  
   return (
 
@@ -13,9 +22,11 @@ function Operaciones() {
                 <Barra />
 
                 <main>
-
-                <Operacion/>
-                <button>Actualizar</button>
+                  <h1>PRODUCCIÓN DEL DÍA</h1>
+                        <ul>
+                            <Operacion/>
+                        </ul>
+                  
                 </main>
         </div>
 

@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import ActContext from "../../context/actualizar/actContext"
 import clienteApi from '../../config/api'
 
 function Operacion() {
+
+   // Extraer la información de autenticación
+   const actContext = useContext(ActContext);
+   const { cargando, actualizado, cerrarActualizar, obtenerActualizar } = actContext;
+
 
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
@@ -14,10 +20,9 @@ function Operacion() {
       setPosts(response.data);
       setLoading(false)
     }
-
     loadPost();
 
-  }, []);
+  }, [("/getProd")]);
 
 
     const cant = posts.filter(item => item.ACTIVIDAD.includes('PICK'));
@@ -37,15 +42,12 @@ function Operacion() {
 
                 <main>
 
-                     {loading ? (
-                        <h4>Loading...</h4>
-                    ) : (
-                        <ul>
-                            <li><h1>FORUS BEE:</h1></li>
-                            {/* {<li>NOMBRE OPERADOR: {cant[0].USUARIO} | PRODUCCION: {picking}</li>} */}
-                        </ul>
-                    )}  
-
+                  <ul>
+                    {actualizado ? <li>NOMBRE OPERADOR: {cant[0].USUARIO} | PRODUCCION: {picking}</li> : null}
+                  </ul>
+                      
+                <button onClick={() => cerrarActualizar()}>Actualizar</button>
+                
                 </main>
         </div>
 

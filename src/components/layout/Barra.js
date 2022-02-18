@@ -24,10 +24,10 @@ const Barra = () => {
             <nav className="menu-principal">
             <ul>
                 <li>
-                    <NavLink className= {({isActive}) => (isActive ? "active" : "btn btn-blank cerrar-sesion")} to="/operaciones">Operaciones</NavLink>  
+                    <NavLink className= {({isActive}) => (isActive ? "active" : "btn btn-blank cerrar-sesion")} to="#">Operaciones</NavLink>  
                 </li>
                 <li>
-                     <NavLink className= {({isActive}) => (isActive ? "active" : "btn btn-blank cerrar-sesion")} to="/proyectos">Proyectos</NavLink>  
+                     <NavLink className= {({isActive}) => (isActive ? "active" : "btn btn-blank cerrar-sesion")} to="#">Proyectos</NavLink>  
                 </li>
                 <li>
                 {usuario ? <button className="btn btn-blank cerrar-sesion" onClick={() => cerrarSesion()}>Cerrar Sesión</button> : <NavLink className= {({isActive}) => (isActive ? "active" : "btn btn-blank cerrar-sesion")} to="/">Iniciar Sesión</NavLink>  }
